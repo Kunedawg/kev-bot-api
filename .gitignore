@@ -1,0 +1,11 @@
+# exclude node modules
+node_modules
+
+# exlude .env file that contains sensitive data
+*.env
+*.ppk
+.env*
+!.env.example
+
+# ignore vscode settings
+.vscode
