@@ -26,8 +26,8 @@ This project will utilize the following tools/ideas:
 2. Work will typically be done in two types of short-lived branches:
    - `feat/feature-branch` for feature work, can contain fixes as well.
    - `fix/fix-branch` for fixes that need to be applied to main quickly.
-3. All commits, with the exception of merge commits, should follow the [conventional commits][conventional-commits] guidelines.
-4. All merges will be done via pull requests. Merge, rebase, and squash type merges are all acceptable.
+3. All commits should follow the [conventional commits][conventional-commits] guidelines.
+4. All merges will be done via pull requests.
 5. Linear history **must** be maintained either by rebasing `main` onto feature branches or by squash merges.
 
 ### Typical Workflow
