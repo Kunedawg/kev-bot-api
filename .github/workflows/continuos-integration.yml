@@ -1,0 +1,17 @@
+name: Node Continuos Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: node
+      - run: npm ci
+      - run: npm run ci-test
