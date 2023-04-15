@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 
 const app = express();
 
@@ -16,4 +17,6 @@ app.get("/", (req, res) => {
   res.send("Successful response.");
 });
 
-app.listen(3000, () => console.log("Example app is listening on port 3000."));
+let server = app.listen(process.env.PORT, process.env.HOST, () =>
+  console.log(`API is listening on ${server.address().address}:${server.address().port}.`)
+);
