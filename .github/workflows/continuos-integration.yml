@@ -8,6 +8,9 @@ on:
 jobs:
   test_pull_request:
     runs-on: ubuntu-latest
+    env:
+      ADDRESS: 127.0.0.1
+      PORT: 3000
     defaults:
       run:
         working-directory: ./api

@@ -1,4 +1,5 @@
-const baseURL = "http://localhost:3000";
+require("dotenv").config();
+const baseURL = `http://${process.env.ADDRESS}:${process.env.PORT}`;
 const fetch = require("cross-fetch");
 
 describe("GET /", () => {

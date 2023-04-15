@@ -17,6 +17,6 @@ app.get("/", (req, res) => {
   res.send("Successful response.");
 });
 
-let server = app.listen(process.env.PORT, process.env.HOST, () =>
+let server = app.listen(process.env.PORT, process.env.ADDRESS, () =>
   console.log(`API is listening on ${server.address().address}:${server.address().port}.`)
 );
