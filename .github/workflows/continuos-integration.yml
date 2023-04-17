@@ -15,9 +15,13 @@ jobs:
       run:
         working-directory: ./api
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout head of main
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
-      - run: npm run ci-test
+      - name: Clean install of node packages
+        run: npm ci
+      - name: Run tests
+        run: npm run ci-test
