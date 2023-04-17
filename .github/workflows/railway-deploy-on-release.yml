@@ -1,0 +1,34 @@
+name: Deploy to Railway
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: branch, tag, or commit hash (optional)
+        required: false
+
+jobs:
+  deploy-to-railway:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api
+    steps:
+      - name: Clone Repository (Latest)
+        uses: actions/checkout@v3
+        if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (Custom Ref)
+        uses: actions/checkout@v3
+        if: github.event.inputs.git-ref != ''
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Railway
+        run: npm i -g @railway/cli
+      - name: Deploy to railway
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
