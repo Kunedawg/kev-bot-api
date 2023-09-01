@@ -1,0 +1,50 @@
+openapi: "3.0.0"
+
+info:
+  title: kevbot api
+  version: 1.0.0
+
+paths:
+  /audio/{audioName}:
+    get:
+      summary: Get audio by name.
+      parameters:
+        - in: path
+          name: audioName
+          schema:
+            type: string
+          required: true
+          description: Name of audio file
+      responses:
+        "200":
+          description: An audio file
+          content:
+            audio/mp3: {}
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+components:
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
