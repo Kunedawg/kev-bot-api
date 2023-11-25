@@ -22,13 +22,13 @@
 #
 # p -> GET /audio/{audio_id}/download
 # pr -> GET /audio/{audio_id}/download (random first)
-# raid -> unique
+# raid -> unique to discord bot, just a p with a channel
 #
-# setfarewell -> POST /user/{user_id}/farewell
+# setfarewell -> POST/PUT /user/{user_id}/farewell
 # delfarewell -> DELETE /user/{user_id}/farewell
 # getfarewell -> GET /user/{user_id}/farewell
 #
-# setgreeting -> POST /user/{user_id}/greeting
+# setgreeting -> POST/PUT /user/{user_id}/greeting
 # delgreeting -> DELETE /user/{user_id}/greeting
 # getgreeting -> GET /user/{user_id}/greeting
 
