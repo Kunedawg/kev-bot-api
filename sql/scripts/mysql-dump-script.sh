@@ -55,6 +55,7 @@ TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 OUTPUT_DIR="$MYSQL_DUMP_DIR/$MYSQL_ENV"
 DATA_FILE="$OUTPUT_DIR/data_dump_$TIMESTAMP.sql"
 SCHEMA_FILE="$OUTPUT_DIR/schema_dump_$TIMESTAMP.sql"
+COMPLETE_DUMP_FILE="$OUTPUT_DIR/complete_dump_$TIMESTAMP.sql"
 
 # Check if the output directory exists, create it if not
 if [ ! -d "$OUTPUT_DIR" ]; then
@@ -68,10 +69,14 @@ mysqldump -h $MYSQL_HOST -u $MYSQL_USER \
   "$DATA_FILE"
 echo "Data dump here: $DATA_FILE"
 
-# Schema dup
+# Schema dump
 mysqldump -h $MYSQL_HOST -u $MYSQL_USER \
   --no-data --routines --skip-triggers $MYSQL_DATABASE_NAME > \
   "$SCHEMA_FILE"
 echo "schema dump here: $SCHEMA_FILE"
+
+mysqldump -h $MYSQL_HOST -u $MYSQL_USER \
+  --routines --triggers $MYSQL_DATABASE_NAME > \
+  "$COMPLETE_DUMP_FILE"
 
 echo "Dump completed!"
