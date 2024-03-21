@@ -75,8 +75,10 @@ mysqldump -h $MYSQL_HOST -u $MYSQL_USER \
   "$SCHEMA_FILE"
 echo "schema dump here: $SCHEMA_FILE"
 
+# Complete dump
 mysqldump -h $MYSQL_HOST -u $MYSQL_USER \
   --routines --triggers $MYSQL_DATABASE_NAME > \
   "$COMPLETE_DUMP_FILE"
+echo "complete dump here: $SCHEMA_FILE"
 
 echo "Dump completed!"
