@@ -1,0 +1,1 @@
+mysql -u doadmin -pAVNS_M9W3mB5khU2XH--5al- -h db-mysql-nyc3-47003-do-user-15256280-0.c.db.ondigitalocean.com -P 25060 < ../dumps/production/complete_dump_20240114185840.sql
